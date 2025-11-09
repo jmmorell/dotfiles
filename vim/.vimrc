@@ -15,7 +15,7 @@ set hlsearch							" Highlight matches
 
 " Quality of Life
 set clipboard=unnamedplus " Use system clipboard
-set mouse=a								" Enable mouse support
+"set mouse=a								" Enable mouse support
 set wrap 									" Line wrapping on
 set laststatus=2
 set noerrorbells  				" Do not use beep error

@@ -1,3 +1,4 @@
+# chsh -s $(which zsh)
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -117,3 +118,13 @@ if ! shopt -oq posix; then
 fi
 
 . "$HOME/.local/bin/env"
+
+
+# Everything from here is mine
+
+# Aliases
+alias ls='ls -lA --color=auto'
+alias grep='grep --color=auto'
+alias vi='vim'
+
+export EDITOR=vim

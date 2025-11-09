@@ -1,0 +1,7 @@
+[user]
+	name = JosepM
+	email = 1170982+jmmorell@users.noreply.github.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = main

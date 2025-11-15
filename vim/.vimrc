@@ -24,9 +24,6 @@ set backspace=indent,eol,start
 
 " Appareance
 syntax on 								" Enable syntax highlighting
-set background=light
-"colorscheme desert
-set termguicolors					" Enable 24-bit colors
 
 " Performance
 set updatetime=300				" Faster updates for plugins or linting
@@ -42,5 +39,18 @@ Plug 'morhetz/gruvbox'
 " Initialize vim-plug
 call plug#end()
 
-set background=light
-colorscheme gruvbox
+" themes & colors
+
+if $TERM ==# 'linux' || empty($DISPLAY)
+    " Pure console: limited colors
+    set notermguicolors
+    set t_Co=16
+    colorscheme desert
+else
+    " Terminal emulator
+    if has("termguicolors")
+        set termguicolors
+    endif
+		set background=light
+		colorscheme gruvbox
+endif

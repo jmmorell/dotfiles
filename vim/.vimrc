@@ -25,8 +25,22 @@ set backspace=indent,eol,start
 " Appareance
 syntax on 								" Enable syntax highlighting
 set background=light
-colorscheme desert
+"colorscheme desert
 set termguicolors					" Enable 24-bit colors
 
 " Performance
 set updatetime=300				" Faster updates for plugins or linting
+
+" =======================================
+" 1. START of the vim-plug section
+" =======================================
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+
+" Initialize vim-plug
+call plug#end()
+
+set background=light
+colorscheme gruvbox

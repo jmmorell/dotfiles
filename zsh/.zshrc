@@ -3,7 +3,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
 setopt INC_APPEND_HISTORY  # Save history immediately
-setopt SHARE_HISTORY       # Share across sessions
+setopt HIST_IGNORE_DUPS                # Don’t store duplicate commands
+setopt HIST_REDUCE_BLANKS              # Remove superfluous blanks before saving
+setopt SHARE_HISTORY                   # Share command history across sessions
 
 # Misc
 setopt CORRECT            # Spell correction
@@ -114,3 +116,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+alias ls='ls -lA --color=auto'
+
+autoload -Uz vcs_info
+# Define the prompt:
+PROMPT='%F{cyan}%n@%m%f:%F{yellow}%~%f$(git_prompt_info)%# '
+
+# Optional: show git branch
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
+

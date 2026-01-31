@@ -1,17 +1,29 @@
-# vim:fileencoding=utf-8:foldmethod=marker
+
 
 # BEGIN_KITTY_THEME
-# Solarized Light
+# Gruvbox Light Soft
 include current-theme.conf
 # END_KITTY_THEME
 
+# KEYBINDINGS 
+map ctrl+page_down next_tab
+map ctrl+page_up previous_tab
+#map ctrl+t new_tab
+# END KEYBINDINGS 
+
+# GENERAL SETTINGS
+confirm_os_window_close 1 # Always asks confirmation
+# END GENERAL SETTINGS
+#
+#
+#
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      monospace
+# font_family      DejaVu Sans Mono Book
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto

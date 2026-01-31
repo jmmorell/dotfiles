@@ -33,10 +33,12 @@ set updatetime=300				" Faster updates for plugins or linting
 " =======================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
+"Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'morhetz/gruvbox'
 
-" Initialize vim-plug
+
 call plug#end()
 
 " themes & colors
@@ -52,5 +54,5 @@ else
         set termguicolors
     endif
 		set background=light
-		colorscheme gruvbox
+		colorscheme one
 endif

@@ -1,0 +1,7 @@
+# Claude Code: only track portable config; never credentials, transcripts or caches
+claude/.claude/*
+!claude/.claude/settings.json
+!claude/.claude/CLAUDE.md
+!claude/.claude/keybindings.json
+!claude/.claude/agents/
+!claude/.claude/commands/

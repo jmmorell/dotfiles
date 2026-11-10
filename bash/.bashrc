@@ -128,3 +128,7 @@ alias grep='grep --color=auto'
 alias vi='vim'
 
 export EDITOR=vim
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"

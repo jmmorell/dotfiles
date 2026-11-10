@@ -128,3 +128,7 @@ PROMPT='%F{cyan}%n@%m%f:%F{yellow}%~%f$(git_prompt_info)%# '
 zstyle ':vcs_info:git:*' formats ' (%b)'
 zstyle ':vcs_info:*' enable git
 
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"

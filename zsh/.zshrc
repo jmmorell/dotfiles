@@ -132,3 +132,6 @@ zstyle ':vcs_info:*' enable git
 
 # Added by Antigravity CLI installer
 export PATH="$HOME/.local/bin:$PATH"
+
+# Machine-specific settings and secrets (untracked)
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

@@ -132,3 +132,6 @@ export EDITOR=vim
 
 # Added by Antigravity CLI installer
 export PATH="$HOME/.local/bin:$PATH"
+
+# Machine-specific settings and secrets (untracked)
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

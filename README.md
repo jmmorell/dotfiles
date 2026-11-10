@@ -18,12 +18,15 @@ Personal configuration for my Linux (Xubuntu) setup, managed with [GNU Stow](htt
 
 ```sh
 git clone https://github.com/jmmorell/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-git config core.hooksPath githooks   # enable the secret-scanning hook
-stow bash zsh vim kitty git claude   # pick the packages you want
+~/dotfiles/install.sh            # all packages
+~/dotfiles/install.sh zsh vim    # or just some
 ```
 
-Stow won't overwrite existing files. Back up or remove `~/.bashrc`, `~/.zshrc` and the others first.
+`install.sh` links the packages with Stow, enables the gitleaks pre-commit hook and lists missing optional dependencies. It's safe to re-run.
+
+Stow never overwrites existing files. If `~/.bashrc` or another target already exists, the script lists the conflicts and stops without linking anything. Back up or remove those files, then re-run.
+
+`~/.config` and `~/.claude` are always created as real directories, so apps never write into this repo.
 
 ### Dependencies
 
@@ -33,9 +36,21 @@ Stow won't overwrite existing files. Back up or remove `~/.bashrc`, `~/.zshrc` a
 - [kitty](https://sw.kovidgoyal.net/kitty/) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [gitleaks](https://github.com/gitleaks/gitleaks) ≥ 8.19 for the pre-commit hook
 
+## Local overrides
+
+Machine-specific settings and secrets go in untracked files, loaded last so they override the tracked config:
+
+| File                 | Loaded by        |
+|----------------------|------------------|
+| `~/.bashrc.local`    | `.bashrc`        |
+| `~/.zshrc.local`     | `.zshrc`         |
+| `~/.gitconfig.local` | `.gitconfig` (`[include]`) |
+
+Installers that append to `~/.bashrc` or `~/.zshrc` still write into the tracked files, so review `git diff` before committing.
+
 ## Using it yourself
 
-`git/.gitconfig` contains my name and email. Change the `[user]` section before stowing `git`.
+`git/.gitconfig` contains my name and email. Change the `[user]` section, or override it in `~/.gitconfig.local`.
 
 ## Claude Code
 

@@ -45,7 +45,10 @@ Approving "Always allow" in Claude Code writes rules into this file, so review `
 
 ## Secret scanning
 
-Every commit runs `gitleaks` on staged changes and is refused if a secret is found. Bypass a false positive with `git commit --no-verify`.
+Two layers, both using [gitleaks](https://github.com/gitleaks/gitleaks):
+
+- **Pre-commit hook** (`githooks/pre-commit`): scans staged changes and refuses the commit if a secret is found. Bypass a false positive with `git commit --no-verify`.
+- **GitHub Action** (`.github/workflows/gitleaks.yml`): scans the full history on every push and pull request, so anything that slips past the hook still shows up. To bump gitleaks, update `VERSION` and `SHA256` together.
 
 ## License
 

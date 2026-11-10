@@ -38,7 +38,7 @@ command -v gh       >/dev/null || missing+=("gh")
 command -v gitleaks >/dev/null || missing+=("gitleaks (pre-commit hook will refuse commits)")
 command -v zsh      >/dev/null || missing+=("zsh")
 [ -d "$HOME/.oh-my-zsh" ]      || missing+=("Oh My Zsh")
-[ -f "$HOME/.vim/autoload/plug.vim" ] || missing+=("vim-plug")
+command -v curl     >/dev/null || missing+=("curl (vim-plug auto-install)")
 command -v kitty    >/dev/null || missing+=("kitty")
 if [ ${#missing[@]} -gt 0 ]; then
   echo "Optional dependencies not found:"

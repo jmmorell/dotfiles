@@ -117,9 +117,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-. "$HOME/.local/bin/env"
-
-
 # Everything from here is mine
 
 # Aliases
@@ -130,8 +127,11 @@ alias vi='vim'
 export EDITOR=vim
 
 
-# Added by Antigravity CLI installer
-export PATH="$HOME/.local/bin:$PATH"
+# ~/.local/bin on PATH (once, even in nested shells)
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
 # Machine-specific settings and secrets (untracked)
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

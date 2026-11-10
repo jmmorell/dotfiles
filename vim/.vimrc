@@ -31,6 +31,12 @@ set updatetime=300				" Faster updates for plugins or linting
 " =======================================
 " 1. START of the vim-plug section
 " =======================================
+" Install vim-plug and plugins on first run (needs curl)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'rakr/vim-one'
@@ -54,5 +60,5 @@ else
         set termguicolors
     endif
 		set background=light
-		colorscheme one
+		silent! colorscheme one   " missing until vim-plug installs it
 endif

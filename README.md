@@ -32,7 +32,7 @@ Stow never overwrites existing files. If `~/.bashrc` or another target already e
 
 - `stow`, `git`, [`gh`](https://cli.github.com/)
 - [Oh My Zsh](https://ohmyz.sh/) for `zsh`
-- [vim-plug](https://github.com/junegunn/vim-plug), then `:PlugInstall` in vim
+- `curl` for vim: [vim-plug](https://github.com/junegunn/vim-plug) and plugins install themselves the first time vim starts
 - [kitty](https://sw.kovidgoyal.net/kitty/) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [gitleaks](https://github.com/gitleaks/gitleaks) ≥ 8.19 for the pre-commit hook
 

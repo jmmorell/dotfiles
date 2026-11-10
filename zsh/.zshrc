@@ -120,18 +120,15 @@ source $ZSH/oh-my-zsh.sh
 
 alias ls='ls -lA --color=auto'
 
-autoload -Uz vcs_info
 # Define the prompt:
 PROMPT='%F{cyan}%n@%m%f:%F{yellow}%~%f$(git_prompt_info)%# '
 
-# Optional: show git branch
-zstyle ':vcs_info:git:*' formats ' (%b)'
-zstyle ':vcs_info:*' enable git
 
-
-
-# Added by Antigravity CLI installer
-export PATH="$HOME/.local/bin:$PATH"
+# ~/.local/bin on PATH (once, even in nested shells)
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
 # Machine-specific settings and secrets (untracked)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

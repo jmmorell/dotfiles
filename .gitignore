@@ -5,3 +5,9 @@ claude/.claude/*
 !claude/.claude/keybindings.json
 !claude/.claude/agents/
 !claude/.claude/commands/
+
+# Karabiner-Elements: track the active config and my own rules only
+karabiner/.config/karabiner/automatic_backups/
+karabiner/.config/karabiner/*.bak-*
+karabiner/.config/karabiner/assets/complex_modifications/*
+!karabiner/.config/karabiner/assets/complex_modifications/josep.json

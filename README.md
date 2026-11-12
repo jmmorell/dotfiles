@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal configuration for my Linux (Xubuntu) setup, managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal configuration for my Linux (Xubuntu) and macOS setups, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## What's inside
 
@@ -10,6 +10,8 @@ Personal configuration for my Linux (Xubuntu) setup, managed with [GNU Stow](htt
 | `zsh`      | `~/.zshrc`                | Oh My Zsh, `robbyrussell` theme       |
 | `vim`      | `~/.vimrc`                | vim-plug, `vim-one` light theme       |
 | `kitty`    | `~/.config/kitty/`        | JetBrains Mono, light theme           |
+| `ghostty`  | `~/.config/ghostty/`      | JetBrains Mono, Atom One Light theme  |
+| `karabiner`| `~/.config/karabiner/`    | macOS only: Linux-style shortcuts (see below) |
 | `git`      | `~/.gitconfig`            | Identity + `gh` as credential helper  |
 | `claude`   | `~/.claude/settings.json` | Claude Code settings only (see below) |
 | `githooks` | —                         | gitleaks pre-commit hook for this repo |
@@ -57,6 +59,22 @@ Installers that append to `~/.bashrc` or `~/.zshrc` still write into the tracked
 Only `settings.json` is tracked. `.gitignore` allow-lists `settings.json`, `CLAUDE.md`, `keybindings.json`, `agents/` and `commands/` under `claude/.claude/`. Credentials, transcripts and caches in `~/.claude` are never committed.
 
 Approving "Always allow" in Claude Code writes rules into this file, so review `git diff` before committing.
+
+## macOS
+
+`ghostty` and `karabiner` are not in `install.sh`'s default list. Link them explicitly:
+
+```sh
+~/dotfiles/install.sh ghostty karabiner
+```
+
+**Ghostty** also reads `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`, and that file wins over `~/.config/ghostty/`. Empty or remove it after linking.
+
+**Karabiner-Elements** rewrites `karabiner.json` whenever you change something in its UI, so Stow must link the whole `~/.config/karabiner` directory, not the file. Move the existing directory away before linking, then review `git diff` after changing settings in the app.
+
+- `karabiner.json` is the active config: the `Josep · …` rules plus a per-device swap of `<` and `º` on the built-in Apple ISO keyboard.
+- `assets/complex_modifications/josep.json` holds the same rules, so they show up under *Add predefined rule* as **Josep** on a fresh install.
+- Rules are evaluated in order; `Josep · Ctrl → Cmd` must stay last.
 
 ## Secret scanning
 
